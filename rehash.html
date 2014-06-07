@@ -12,5 +12,12 @@
   <input type="password" id="password" value="password"/><br>
   <input id="signup" type="button" value="Sign up" />
   <span id="error-message"></span>
-  <input id="test" type="button" value="test" />
+  <input id="test" type="button" value="test" /><br>
+  {{> images}}
+</template>
+
+<template name="images">
+	{{#each images}}
+		<img src="{{url}}"/>
+	{{/each}}
 </template>

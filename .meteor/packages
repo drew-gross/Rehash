@@ -8,3 +8,5 @@ autopublish
 insecure
 parse-sdk
 jquery
+http
+underscore
