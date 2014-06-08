@@ -12,60 +12,51 @@
 
 <body>
 	<div id="ig-root"></div>
-  <div class="site-wrapper">
-    <div class="site-wrapper-inner">
-      <div class="cover-container">
-        {{> masthead}}
-        {{> signup}}
-        {{> mastfoot}}
-      </div>
-    </div>
+  <div class="container">
+    <h1>What story do you have to tell?</h1>
+    {{> signup}}
   </div>
 </body>
 
-<template name="masthead">
-  <div class="masthead clearfix">
-    <div class="inner">
-      <h3 class="masthead-brand">Reelify</h3>
-      <ul class="nav masthead-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Features</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-</template>
 
 <template name="signup">
-  <input type="name" id="name" value="Instagram Names"/><br>
-  <span id="error-message"></span>
-  <input id="test" type="button" value="test" /><br>
+  <div class="signupForm">
+    <input type="name" id="name" placeholder="Instagram Names"/>
+    <span id="error-message"></span>
+    <input id="test" type="button" value="test" /><br>
+  </div>
   {{> images}}
 </template>
 
 <template name="images">
-	<div class="inner cover">
-    <ul>
-      <div id="film">
-      	{{usernames}}
-        {{#each images}}
-      		<li><img src="{{url}}"/></li>
-      		<div>{{text}}</div>
-      		<div>{{username}}</div>
-      		<div>{{post_url}}</div>
-      		<div>{{latitude}}</div>
-      		<div>{{longitude}}</div>
-      		<div>{{location_name}}</div>
-      	{{/each}}
+  <div class="" id="results">
+    <h2>{{usernames}}</h2>
+    
+    <div class="col-sm-6 col-sm-offset-3" id="film">
+      {{#each images}}
+        <div class='InstFrame'>  
+          <img class="img-responsive img-rounded" src="{{url}}"/>
+          <div class='caption'>  
+            <p class='captionContent'>{{text}}</p>  
+            <div>{{username}}</div>
+            <div>{{post_url}}</div>
+            <div>{{latitude}}</div>
+            <div>{{longitude}}</div>
+            <div>{{location_name}}</div>
+          </div>  
+        </div>  
+    	{{/each}}
+    </div>
+    <div class="col-sm-6 col-sm-offset-3" id="canBox">
+      <div id="can">
+        <div id="leftcap"></div>
+        <div id="text">
+          <p class="gold">{{usernames}}</p>
+          <p class="num">Instagram</p>
+          <p class="mm">24 shots</p>
+        </div>
+        <div id="rightcap"></div>
       </div>
-    </ul>
-  </div>
-</template>
-
-<template name="mastfoot">
-  <div class="mastfoot">
-    <div class="inner">
-      <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
     </div>
   </div>
 </template>
