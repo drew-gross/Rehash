@@ -1,5 +1,6 @@
 {
   "packages": {
-    "parse-sdk": {}
+    "parse-sdk": {},
+    "bootstrap-3": {}
   }
 }
