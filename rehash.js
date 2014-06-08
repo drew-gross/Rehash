@@ -4,7 +4,9 @@ if (Meteor.isClient) {
   Parse.initialize("TCDWY9Ruvug1bsl3WAAgD6dLyU6UbjVgzUOKw6P6", "GEWCWsdk8J9gcw3gOpYlt412Nmv1hFbxCV5raw0m");
   Template.signup.events({
     'click #test' : function () {
-      Meteor.call("checkInstagram", $("#name").val(), function(error, results) {
+      var usernames = $("#name").val();
+      Session.set("usernames", usernames);
+      Meteor.call("checkInstagram", usernames, function(error, results) {
         console.log(results);
         Session.set("images", _.sortBy(results, function(image) {
           return parseInt(image.created_time);
@@ -15,6 +17,9 @@ if (Meteor.isClient) {
 
   Template.images.images = function() {
     return _.pluck(_.pluck(Session.get("images"), "images"), "standard_resolution");
+  };
+  Template.images.usernames = function() {
+    return Session.get("usernames");
   }
 }
 
