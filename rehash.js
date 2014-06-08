@@ -15,7 +15,12 @@ if (Meteor.isClient) {
   });
 
   Template.images.images = function() {
-    return _.map(Session.get("images"), function(item) {
+    var min_timestamp = new Date().getTime()/1000 - 7*24*60*60;
+    var images = Session.get("images");
+    var recent_images = _.filter(images, function(image) {
+      return parseInt(image.created_time) > min_timestamp;
+    });
+    return _.map(recent_images, function(item) {
       var result = {
         url:item.images.standard_resolution.url,
         text:item.caption.text,
@@ -42,7 +47,9 @@ if (Meteor.isServer) {
   Meteor.methods({
     checkInstagram: function (names) {
       this.unblock();
-      var split_names = names.split(" ");
+      var split_names = names.split(/[@, ]+/).filter(function(name) {
+        return name.length > 0;
+      });
       var people_ids = [];
       for (i = 0; i < split_names.length; i++) {
         var name = split_names[i];
