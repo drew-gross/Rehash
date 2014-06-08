@@ -1,11 +1,40 @@
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
   <title>rehash</title>
+
+  <link href="cover.css" rel="stylesheet">
 </head>
 
 <body>
 	<div id="ig-root"></div>
-	{{> signup}}
+  <div class="site-wrapper">
+    <div class="site-wrapper-inner">
+      <div class="cover-container">
+        {{> masthead}}
+        {{> signup}}
+        {{> mastfoot}}
+      </div>
+    </div>
+  </div>
 </body>
+
+<template name="masthead">
+  <div class="masthead clearfix">
+    <div class="inner">
+      <h3 class="masthead-brand">Reelify</h3>
+      <ul class="nav masthead-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</template>
 
 <template name="signup">
   <input type="text" id="username" value="username"/><br>
@@ -17,7 +46,21 @@
 </template>
 
 <template name="images">
-	{{#each images}}
-		<img src="{{url}}"/>
-	{{/each}}
+	<div class="inner cover">
+    <ul>
+      <div id="film">
+        {{#each images}}
+      		<li><img src="{{url}}"/></li>
+      	{{/each}}
+      </div>
+    </ul>
+  </div>
+</template>
+
+<template name="mastfoot">
+  <div class="mastfoot">
+    <div class="inner">
+      <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+    </div>
+  </div>
 </template>
