@@ -3,19 +3,6 @@ if (Meteor.isClient) {
   var images = [];
   Parse.initialize("TCDWY9Ruvug1bsl3WAAgD6dLyU6UbjVgzUOKw6P6", "GEWCWsdk8J9gcw3gOpYlt412Nmv1hFbxCV5raw0m");
   Template.signup.events({
-    'click #signup' : function () {
-      var user = new Parse.User()
-      user.set("username", $("#username").val());
-      user.set("password", $("#password").val());
-      user.signUp(null, {
-        success: function(user) {
-        },
-        error: function(user, error) {
-          alert(error.message);
-          $("#error").text(error.message);
-        }
-      });
-    },
     'click #test' : function () {
       Meteor.call("checkInstagram", $("#name").val(), function(error, results) {
         console.log(results);
