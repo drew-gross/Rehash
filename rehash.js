@@ -16,10 +16,20 @@ if (Meteor.isClient) {
 
   Template.images.images = function() {
     return _.map(Session.get("images"), function(item) {
-      return ({
-          url:item.images.standard_resolution.url,
-          text:item.caption.text
+      var result = {
+        url:item.images.standard_resolution.url,
+        text:item.caption.text,
+        username:item.user.full_name,
+        post_url:item.link,
+      }
+      if (item.location) {
+        _.extend(result, {
+          latitude:item.location.latitude,
+          longitude:item.location.longitude,
+          location_name:item.location.name
         });
+      }
+      return result;
     });
   };
 
