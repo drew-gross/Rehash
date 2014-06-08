@@ -17,10 +17,9 @@ if (Meteor.isClient) {
       });
     },
     'click #test' : function () {
-      console.log("loading");
-      Meteor.call("checkInstagram", function(error, results) {
-        Session.set("images", JSON.parse(results.content).data);
-        console.log(JSON.parse(results.content).data);
+      Meteor.call("checkInstagram", $("#name").val(), function(error, results) {
+        console.log(results);
+        Session.set("images", results);
       });
     }
   });
@@ -32,9 +31,25 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
   Meteor.methods({
-    checkInstagram: function () {
+    checkInstagram: function (names) {
       this.unblock();
-      return Meteor.http.call("GET", "https://api.instagram.com/v1/media/popular?client_id=e1a7b079c2514cdab8fd86519a931b10");
+      var split_names = names.split(" ");
+      var people_ids = [];
+      for (i = 0; i < split_names.length; i++) {
+        var name = split_names[i];
+        var result = Meteor.http.call("GET", "https://api.instagram.com/v1/users/search?q="+name+"&client_id=e1a7b079c2514cdab8fd86519a931b10&count=1");
+        var people_data = JSON.parse(result.content).data;
+        if (people_data[0]) {
+          people_ids.push(people_data[0].id);
+        }
+      }
+      var photos = [];
+      for (i = 0; i < people_ids.length; i++) {
+        var result = Meteor.http.call("GET", "https://api.instagram.com/v1/users/"+people_ids[i]+"/media/recent/?client_id=e1a7b079c2514cdab8fd86519a931b10");
+        var media_ids = JSON.parse(result.content).data;
+        photos = photos.concat(media_ids);
+      }
+      return photos;
     }
   });
 }
