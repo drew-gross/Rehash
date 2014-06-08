@@ -7,7 +7,6 @@ if (Meteor.isClient) {
       var usernames = $("#name").val();
       Session.set("usernames", usernames);
       Meteor.call("checkInstagram", usernames, function(error, results) {
-        console.log(results);
         Session.set("images", _.sortBy(results, function(image) {
           return parseInt(image.created_time);
         }));
@@ -16,8 +15,14 @@ if (Meteor.isClient) {
   });
 
   Template.images.images = function() {
-    return _.pluck(_.pluck(Session.get("images"), "images"), "standard_resolution");
+    return _.map(Session.get("images"), function(item) {
+      return ({
+          url:item.images.standard_resolution.url,
+          text:item.caption.text
+        });
+    });
   };
+
   Template.images.usernames = function() {
     return Session.get("usernames");
   }
