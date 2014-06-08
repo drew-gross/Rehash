@@ -1,5 +1,6 @@
 body {
   background: #EFDFBD;
+  background-image: url(/bg.png)
 }
 
 /*FILM STYLING*/
@@ -61,6 +62,10 @@ p.captionContent{
     margin: 0px;
     text-align: right;  
 }  
+
+.picContent:hover {
+  z-index: 300;
+}
 
 #film .captionContent a {   
     color: white;  
