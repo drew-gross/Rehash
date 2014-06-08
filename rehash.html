@@ -32,22 +32,20 @@
   <div class="" id="results">
     <h2>{{usernames}}</h2>
     
-    <div class="col-sm-6 col-sm-offset-3" id="film">
+    <div class="col-sm-8 col-sm-offset-2" id="film">
       {{#each images}}
         <div class='InstFrame'>  
           <img class="img-responsive img-rounded" src="{{url}}"/>
           <div class='caption'>  
-            <p class='captionContent'>{{text}}</p>  
-            <div>{{username}}</div>
-            <div>{{post_url}}</div>
-            <div>{{latitude}}</div>
+            <p class='captionContent'>{{text}}<br><a href="{{post_url}}">{{username}}</a></p>  
+            <!-- <div>{{latitude}}</div>
             <div>{{longitude}}</div>
-            <div>{{location_name}}</div>
+            <div>{{location_name}}</div> -->
           </div>  
         </div>  
     	{{/each}}
     </div>
-    <div class="col-sm-6 col-sm-offset-3" id="canBox">
+    <div class="col-sm-8 col-sm-offset-2" id="canBox">
       <div id="can">
         <div id="leftcap"></div>
         <div id="text">
