@@ -15,7 +15,7 @@ if (Meteor.isClient) {
   });
 
   Template.images.images = function() {
-    var min_timestamp = new Date().getTime()/1000 - 2.5*24*60*60;
+    var min_timestamp = new Date().getTime()/1000 - 7*24*60*60;
     var images = Session.get("images");
     var recent_images = _.filter(images, function(image) {
       return parseInt(image.created_time) > min_timestamp;
