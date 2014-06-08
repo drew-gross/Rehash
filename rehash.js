@@ -15,7 +15,12 @@ if (Meteor.isClient) {
   });
 
   Template.images.images = function() {
-    return _.map(Session.get("images"), function(item) {
+    var min_timestamp = new Date().getTime()/1000 - 2.5*24*60*60;
+    var images = Session.get("images");
+    var recent_images = _.filter(images, function(image) {
+      return parseInt(image.created_time) > min_timestamp;
+    });
+    return _.map(recent_images, function(item) {
       var result = {
         url:item.images.standard_resolution.url,
         text:item.caption.text,
