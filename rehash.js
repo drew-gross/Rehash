@@ -19,7 +19,9 @@ if (Meteor.isClient) {
     'click #test' : function () {
       Meteor.call("checkInstagram", $("#name").val(), function(error, results) {
         console.log(results);
-        Session.set("images", results);
+        Session.set("images", _.sortBy(results, function(image) {
+          return parseInt(image.created_time);
+        }));
       });
     }
   });
