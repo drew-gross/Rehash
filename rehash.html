@@ -13,7 +13,7 @@
 <body>
 	<div id="ig-root"></div>
   <div class="container">
-    <h1>What story do you have to tell?</h1>
+    <h1>Telling Today's Stories</h1>
     {{> signup}}
   </div>
 </body>
@@ -32,10 +32,10 @@
   <div class="" id="results">
     <h2>{{usernames}}</h2>
     
-    <div class="col-xs-8 col-xs-offset-2" id="film">
+    <div class="col-lg-6 col-lg-offset-3 col-xs-8 col-xs-offset-2" id="film">
       {{#each images}}
         <div class='InstFrame'>  
-          <img class="picContent img-responsive img-rounded" src="{{url}}"/>
+          <img class="img-responsive img-rounded picContent" src="{{url}}"/>
           <div class='caption'>  
             <p class='captionContent'>{{text}}<br><a href="{{post_url}}">{{username}}</a></p>  
             <!-- <div>{{latitude}}</div>
@@ -45,15 +45,22 @@
         </div>  
     	{{/each}}
     </div>
-    <div class="col-xs-8 col-xs-offset-2" id="canBox">
+    <div class="col-lg-6 col-lg-offset-3 col-xs-8 col-xs-offset-2" id="canBox">
       <div id="can">
-        <div id="leftcap"></div>
+        
+        <div id="leftcap1"></div>
+        <div id="leftcap2"></div>
+        <div id="leftcap3"></div>
+        <div id="leftcap4"></div>
+
         <div id="text">
-          <p class="gold">{{usernames}}</p>
+          <!-- <p class="gold">{{usernames}}</p>
           <p class="num">Instagram</p>
-          <p class="mm">24 shots</p>
+          <p class="mm">Content from the last 2 days.</p> -->
         </div>
         <div id="rightcap"></div>
+        <div id="rightcap2"></div>
+        <div id="rightcap3"></div>
       </div>
     </div>
   </div>

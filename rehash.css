@@ -63,8 +63,9 @@ p.captionContent{
     text-align: right;  
 }  
 
-.picContent:hover {
-  z-index: 300;
+.picContent {
+  width: 100%;
+  height: auto;
 }
 
 #film .captionContent a {   
@@ -91,12 +92,136 @@ p.captionContent{
 }
 
 
-#leftcap {
+#leftcap1 {
+  position: absolute;
+
+  border: #703915;
+  border-radius: 50%;
+  border-style: solid;
+  
+  border-bottom-width: 50%;
+  border-top-width: 50%;
+  border-left-width: 20px;
+  border-right-width: 20px;
+  
+  
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  width: 0px;
+}
+
+
+#leftcap2 {
+  position: absolute;
+
+  border: #d76c26;
+  border-radius: 50%;
+  border-style: solid;
+  
+  border-bottom-width: 50%;
+  border-top-width: 50%;
+  border-left-width: 20px;
+  border-right-width: 20px;
+  
+  
+  left: -5px;
+  top: 0px;
+  bottom: 0px;
+  width: 0px;
+}
+
+#leftcap3 {
+  position: absolute;
+
+  border: #ab5721;
+  border-radius: 50%;
+  border-style: solid;
+  
+  border-bottom-width: 50%;
+  border-top-width: 50%;
+  border-left-width: 20px;
+  border-right-width: 20px;
+  
+  
   left: -20px;
+  top: 0px;
+  bottom: 0px;
+  width: 0px;
+}
+
+#leftcap4{
+  position: absolute;
+
+  border: #703915;
+  border-radius: 50%;
+  border-style: solid;
+  
+  border-bottom-width: 50%;
+  border-top-width: 50%;
+  border-left-width: 15px;
+  border-right-width: 15px;
+  
+  
+  left: -15px;
+  top: 10px;
+  bottom: 10px;
+  width: 0px;
+}
+
+
+#rightcap3 {
+  position: absolute;
+
+  border: #d76c26;
+  border-radius: 50%;
+  border-style: solid;
+  
+  border-bottom-width: 50%;
+  border-top-width: 50%;
+  border-left-width: 20px;
+  border-right-width: 20px;
+  
+  right: 5px;
+  top: 0px;
+  bottom: 0px;
+  width: 0px;
+}
+
+#rightcap2 {
+  position: absolute;
+
+  border: #703915;
+  border-radius: 50%;
+  border-style: solid;
+  
+  border-bottom-width: 50%;
+  border-top-width: 50%;
+  border-left-width: 20px;
+  border-right-width: 20px;
+  
+  right: -0px;
+  top: 0px;
+  bottom: 0px;
+  width: 0px;
 }
 
 #rightcap {
+  position: absolute;
+
+  border: #d76c26;
+  border-radius: 50%;
+  border-style: solid;
+  
+  border-bottom-width: 50%;
+  border-top-width: 50%;
+  border-left-width: 20px;
+  border-right-width: 20px;
+  
   right: -20px;
+  top: 0px;
+  bottom: 0px;
+  width: 0px;
 }
 
 #canBox {
@@ -113,10 +238,7 @@ p.captionContent{
 #can {
   position: absolute;
   top: 0; bottom: 0; left: -10px; right: -10px;
-  background: -webkit-linear-gradient(top, rgba(164,97,8,1) 0%,rgba(242,216,67,1) 38%,rgba(223,150,35,1) 80%,rgba(164,97,8,1) 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, rgba(164,97,8,1) 0%,rgba(242,216,67,1) 38%,rgba(223,150,35,1) 80%,rgba(164,97,8,1) 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, rgba(164,97,8,1) 0%,rgba(242,216,67,1) 38%,rgba(223,150,35,1) 80%,rgba(164,97,8,1) 100%); /* IE10+ */
-  background: linear-gradient(to bottom, rgba(164,97,8,1) 0%,rgba(242,216,67,1) 38%,rgba(223,150,35,1) 80%,rgba(164,97,8,1) 100%); /* W3C */
+  background-color: #d76c26;
 }
 
 #can #text {
@@ -125,7 +247,7 @@ p.captionContent{
   font-family: helvetica;
   font-weight: bold;
   text-align: center;
-  width: 200px;
+  width: 100%;
 }
 
 #can p {
@@ -139,10 +261,12 @@ p.captionContent{
 
 #can p.num {
   font-size: 2em;
-  font-style: italic;
+  -webkit-transform: rotateX(-20deg) translateZ(40px);
 }
 
 #can p.mm {
   font-size: 0.8em;
   font-family: serif;
 }
+
+/*CAN 2*/
