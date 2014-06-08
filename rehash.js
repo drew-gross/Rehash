@@ -47,7 +47,9 @@ if (Meteor.isServer) {
   Meteor.methods({
     checkInstagram: function (names) {
       this.unblock();
-      var split_names = names.split(" ");
+      var split_names = names.split(/[@, ]+/).filter(function(name) {
+        return name.length > 0;
+      });
       var people_ids = [];
       for (i = 0; i < split_names.length; i++) {
         var name = split_names[i];
